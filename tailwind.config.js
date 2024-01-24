@@ -10,6 +10,8 @@ export default {
       },
       colors: {
         "brand-blue-100": "#1A73E9",
+        "brand-blue-200": "#045BCD",
+        "brand-black-100": "#0D121E",
       },
       screens: {
         sm: "576px",

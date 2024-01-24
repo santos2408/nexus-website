@@ -1,47 +1,112 @@
 <template>
-  <header class="w-full bg-white relative">
-    <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center">
-        <div class="relative superinfo-left">
-          <ul
-            class="relative text-white flex gap-6 py-4 text-sm leading-4 flex-1 pr-10 flex-wrap"
-          >
-            <li>+1 (231) 102 345</li>
-            <li>email@example.com</li>
-            <li>120 F 2th Yt, Melbone NY 1259</li>
-          </ul>
+  <header class="w-full bg-white relative py-5 lg:py-0">
+    <div>
+      <Transition>
+        <navigation-mobile v-show="store.activeMenu" />
+      </Transition>
+
+      <super-info />
+
+      <div
+        class="custom-container mx-auto px-4 flex justify-between items-center py-0 lg:py-4"
+      >
+        <div>
+          <a href="/">
+            <img :src="logo2" class="h-11" alt="Nexus logo" height="50" />
+          </a>
         </div>
 
-        <div class="bg-white h-full">Monday - Friday / 8AM - 11PM</div>
+        <nav class="hidden lg:block">
+          <ul class="flex flex-wrap gap-10">
+            <li
+              v-for="menuItem in menuItems"
+              :key="menuItem.id"
+              class="font-medium text-brand-black-100 hover:text-brand-blue-100 transition duration-300"
+            >
+              <a href="#" class="py-3">{{ menuItem.name }}</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="flex flex-wrap">
+          <div class="lg:flex-wrap lg:gap-4 hidden lg:flex">
+            <button
+              type="button"
+              class="transition duration-300 cursor-pointer rounded-md border border-gray-200 hover:border-blue-100 px-3 hover:bg-brand-blue-100 search-button"
+            >
+              <Search class="search-icon" />
+            </button>
+
+            <button
+              type="button"
+              class="hidden lg:block capitalize bg-brand-blue-100 font-medium text-white px-7 py-3 rounded-md hover:bg-brand-blue-200 transition duration-300"
+            >
+              Get Consulting
+            </button>
+          </div>
+
+          <div class="cursor-pointer block lg:hidden" @click="openMenu">
+            <Menu color="#1a73e9" size="28" />
+          </div>
+        </div>
       </div>
     </div>
   </header>
 </template>
 
-<script>
-export default {
-  name: "TheNavigation",
+<script setup>
+import { ref } from "vue";
+import { useUserStore } from "@/stores/user";
+
+import { Menu, Search } from "lucide-vue-next";
+
+import logo2 from "@/assets/images/logo2.svg";
+
+import NavigationMobile from "@/components/Navigation/NavigationMobile.vue";
+import SuperInfo from "@/components/Navigation/SuperInfo.vue";
+
+const store = useUserStore();
+
+const menuItems = ref([
+  {
+    id: 0,
+    name: "Home",
+    url: "/",
+  },
+  {
+    id: 1,
+    name: "About",
+    url: "/about",
+  },
+  {
+    id: 2,
+    name: "Services",
+    url: "/services",
+  },
+  {
+    id: 3,
+    name: "News",
+    url: "/news",
+  },
+  {
+    id: 4,
+    name: "Contact",
+    url: "/contact",
+  },
+]);
+
+const openMenu = () => {
+  store.toggleMenu();
 };
 </script>
 
 <style scoped>
-.superinfo-left::before,
-.superinfo-left::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background-color: #1a73e9;
+.search-icon {
+  color: #1a73e9;
 }
 
-.superinfo-left::before {
-  right: 0;
-  left: 0;
-  clip-path: polygon(0 0, 100% 0%, 95% 100%, 0% 100%);
-}
-
-.superinfo-left::after {
-  right: 100%;
-  left: -10000000px;
+.search-button:hover .search-icon {
+  color: #fff;
+  border-color: red;
 }
 </style>
