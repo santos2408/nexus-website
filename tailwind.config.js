@@ -12,12 +12,7 @@ export default {
         "brand-blue-100": "#1A73E9",
         "brand-blue-200": "#045BCD",
         "brand-black-100": "#0D121E",
-      },
-      screens: {
-        sm: "576px",
-        md: "768px",
-        lg: "992px",
-        xl: "1200px",
+        "brand-gray-100": "#475467",
       },
     },
   },

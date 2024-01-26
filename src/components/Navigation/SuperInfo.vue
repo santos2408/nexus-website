@@ -5,19 +5,19 @@
     >
       <div class="relative superinfo-left">
         <ul
-          class="relative text-white flex py-4 text-sm flex-1 pr-12 flex-wrap lg:gap-4 xlrelative superinfo-left:gap-6"
+          class="relative text-white flex py-4 text-sm flex-1 pr-6 xl:pr-12 flex-wrap lg:gap-4 xl:relative gap-6"
         >
           <li class="flex items-center gap-2">
             <Phone size="15" />
-            <span>+1 (231) 102 345</span>
+            <span class="leading-normal">+1 (231) 102 345</span>
           </li>
           <li class="flex items-center gap-2">
             <Mail size="15" />
-            <span>email@example.com</span>
+            <span class="leading-normal">email@example.com</span>
           </li>
           <li class="flex items-center gap-2">
             <MapPin size="15" />
-            <span class="">120 F 2th Yt, Melbone NY 1259</span>
+            <span class="leading-normal">120 F 2th Yt, Melbone NY 1259</span>
           </li>
         </ul>
       </div>
@@ -25,20 +25,37 @@
       <div class="bg-white h-full flex flex-wrap items-center gap-8">
         <div class="flex items-center gap-2">
           <Clock size="16" color="#1a73e9" />
-          <span class="text-sm">Monday - Friday / 8AM - 11PM</span>
+          <span class="text-sm leading-normal text-brand-gray-100"
+            >Monday - Friday / 8AM - 11PM</span
+          >
         </div>
 
         <span class="inline-block text-gray-200">|</span>
 
         <div class="flex items-center flex-wrap gap-3">
-          <a href="#">
-            <Twitter size="16" color="" />
+          <a href="#" class="social-icon">
+            <font-awesome-icon
+              :icon="['fab', 'twitter']"
+              class="text-brand-gray-100 transition duration-300 social-icon__item"
+            />
           </a>
-          <a href="#">
-            <Facebook size="16" color="" />
+          <a href="#" class="social-icon">
+            <font-awesome-icon
+              :icon="['fab', 'facebook']"
+              class="text-brand-gray-100 transition duration-300 social-icon__item"
+            />
           </a>
-          <a href="#">
-            <Instagram size="16" color="" />
+          <a href="#" class="social-icon">
+            <font-awesome-icon
+              :icon="['fab', 'pinterest-p']"
+              class="text-brand-gray-100 transition duration-300 social-icon__item"
+            />
+          </a>
+          <a href="#" class="social-icon">
+            <font-awesome-icon
+              :icon="['fab', 'instagram']"
+              class="text-brand-gray-100 transition duration-300 social-icon__item"
+            />
           </a>
         </div>
       </div>
@@ -47,7 +64,7 @@
 </template>
 
 <script setup>
-import { Phone, Mail, MapPin, Clock, Twitter, Facebook, Instagram } from "lucide-vue-next";
+import { Phone, Mail, MapPin, Clock } from "lucide-vue-next";
 </script>
 
 <style scoped>
@@ -61,9 +78,9 @@ import { Phone, Mail, MapPin, Clock, Twitter, Facebook, Instagram } from "lucide
   background-color: rgba(229, 231, 235, 1);
 }
 
-.superinfo-left {
+/* .superinfo-left {
   background: linear-gradient(120deg, #1a73e9 5%, rgba(255, 255, 255, 1) 5%);
-}
+} */
 
 .superinfo-left::before,
 .superinfo-left::after {
@@ -75,7 +92,6 @@ import { Phone, Mail, MapPin, Clock, Twitter, Facebook, Instagram } from "lucide
 }
 
 .superinfo-left::before {
-  /* z-index: 1000000; */
   right: 0;
   left: 0;
   clip-path: polygon(0 0, 100% 0%, 95% 100%, 0% 100%);
@@ -84,5 +100,9 @@ import { Phone, Mail, MapPin, Clock, Twitter, Facebook, Instagram } from "lucide
 .superinfo-left::after {
   right: 100%;
   left: -10000000px;
+}
+
+.social-icon:hover .social-icon__item {
+  color: #1a73e9;
 }
 </style>
