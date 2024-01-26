@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 left-0 w-full">
+  <div class="fixed top-0 left-0 w-full z-50">
     <nav class="w-72 bg-brand-black-100 h-screen z-50 px-4 py-8">
       <div class="flex justify-between mb-10 items-center">
         <a href="/">
@@ -101,31 +101,20 @@ const menuItems = ref([
   },
 ]);
 
-let screenTimeoutId = ref(null);
-
 const closeMenu = () => {
   store.toggleMenu();
 };
 
 const handleCurrentScreen = () => {
-  if (screenTimeoutId.value) {
-    clearTimeout(screenTimeoutId.value);
-  }
+  // if (screenTimeoutId.value) {
+  //   clearTimeout(screenTimeoutId.value);
+  // }
 
   const screenWidth = window.innerWidth;
   const isOnMobile = screenWidth < 1200;
 
-  if (isOnMobile) {
-    screenTimeoutId.value = setTimeout(() => {
-      store.onMobile = true;
-      store.activeMenu = false;
-    }, 300);
-  } else {
-    screenTimeoutId.value = setTimeout(() => {
-      store.onMobile = false;
-      store.activeMenu = false;
-    }, 300);
-  }
+  store.activeMenu = false;
+  store.onMobile = isOnMobile ? true : false;
 };
 
 onMounted(() => {
