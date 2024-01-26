@@ -22,7 +22,7 @@
         </ul>
       </div>
 
-      <div class="bg-white h-full flex flex-wrap items-center gap-8">
+      <div class="h-full flex flex-wrap items-center gap-8">
         <div class="flex items-center gap-2">
           <Clock size="16" color="#1a73e9" />
           <span class="text-sm leading-normal text-brand-gray-100"
@@ -78,9 +78,10 @@ import { Phone, Mail, MapPin, Clock } from "lucide-vue-next";
   background-color: rgba(229, 231, 235, 1);
 }
 
-/* .superinfo-left {
-  background: linear-gradient(120deg, #1a73e9 5%, rgba(255, 255, 255, 1) 5%);
-} */
+.superinfo-left {
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(26, 115, 233, 1) 30%, rgba(255, 255, 255, 1) 30%);
+}
 
 .superinfo-left::before,
 .superinfo-left::after {
@@ -95,11 +96,17 @@ import { Phone, Mail, MapPin, Clock } from "lucide-vue-next";
   right: 0;
   left: 0;
   clip-path: polygon(0 0, 100% 0%, 95% 100%, 0% 100%);
+  padding: 0;
+  margin: 0;
+  background-color: #1a73e9;
+  z-index: -1;
 }
 
 .superinfo-left::after {
   right: 100%;
   left: -10000000px;
+  background-color: #1a73e9;
+  z-index: -1;
 }
 
 .social-icon:hover .social-icon__item {

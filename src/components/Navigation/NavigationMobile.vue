@@ -44,13 +44,16 @@
 
         <div class="flex flex-wrap gap-4">
           <a href="#">
-            <Twitter size="16" color="#fff" />
+            <font-awesome-icon :icon="['fab', 'twitter']" class="text-white" />
           </a>
           <a href="#">
-            <Facebook size="16" color="#fff" />
+            <font-awesome-icon :icon="['fab', 'facebook']" class="text-white" />
           </a>
           <a href="#">
-            <Instagram size="16" color="#fff" />
+            <font-awesome-icon :icon="['fab', 'pinterest-p']" class="text-white" />
+          </a>
+          <a href="#">
+            <font-awesome-icon :icon="['fab', 'instagram']" class="text-white" />
           </a>
         </div>
       </div>
@@ -106,10 +109,6 @@ const closeMenu = () => {
 };
 
 const handleCurrentScreen = () => {
-  // if (screenTimeoutId.value) {
-  //   clearTimeout(screenTimeoutId.value);
-  // }
-
   const screenWidth = window.innerWidth;
   const isOnMobile = screenWidth < 1200;
 
@@ -125,15 +124,3 @@ onBeforeUnmount(() => {
   window.removeEventListener("resize", handleCurrentScreen);
 });
 </script>
-
-<style scoped>
-.v-enter-active,
-.v-leave-active {
-  transition: transform 0.3s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  transform: translateX(-100%);
-}
-</style>
