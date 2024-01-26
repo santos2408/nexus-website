@@ -5,7 +5,7 @@
     >
       <div class="relative superinfo-left">
         <ul
-          class="relative text-white flex py-4 text-sm flex-1 pr-12 flex-wrap lg:gap-4 xl:gap-6"
+          class="relative text-white flex py-4 text-sm flex-1 pr-12 flex-wrap lg:gap-4 xlrelative superinfo-left:gap-6"
         >
           <li class="flex items-center gap-2">
             <Phone size="15" />
@@ -61,6 +61,10 @@ import { Phone, Mail, MapPin, Clock, Twitter, Facebook, Instagram } from "lucide
   background-color: rgba(229, 231, 235, 1);
 }
 
+.superinfo-left {
+  background: linear-gradient(120deg, #1a73e9 5%, rgba(255, 255, 255, 1) 5%);
+}
+
 .superinfo-left::before,
 .superinfo-left::after {
   content: "";
@@ -71,6 +75,7 @@ import { Phone, Mail, MapPin, Clock, Twitter, Facebook, Instagram } from "lucide
 }
 
 .superinfo-left::before {
+  /* z-index: 1000000; */
   right: 0;
   left: 0;
   clip-path: polygon(0 0, 100% 0%, 95% 100%, 0% 100%);
