@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TheNavigation from "@/components/Navigation/TheNavigation.vue";
+import TheNavigation from "@/features/navigation/components/TheNavigation.vue";
 
 export default {
   name: "App",

@@ -68,13 +68,13 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import { useUserStore } from "@/stores/user";
+import { useNavigationStore } from "@/features/navigation/stores/navigation";
 
-import { Phone, Mail, X, Twitter, Facebook, Instagram } from "lucide-vue-next";
+import { Phone, Mail, X } from "lucide-vue-next";
 
 import logo1 from "@/assets/images/logo1.svg";
 
-const store = useUserStore();
+const store = useNavigationStore();
 
 const menuItems = ref([
   {

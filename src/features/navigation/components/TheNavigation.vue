@@ -88,16 +88,16 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { useUserStore } from "@/stores/user";
+import { useNavigationStore } from "@/features/navigation/stores/navigation";
 
 import { Menu, Search } from "lucide-vue-next";
 
 import logo2 from "@/assets/images/logo2.svg";
 
-import NavigationMobile from "@/components/Navigation/NavigationMobile.vue";
-import SuperInfo from "@/components/Navigation/SuperInfo.vue";
+import NavigationMobile from "@/features/navigation/components/NavigationMobile.vue";
+import SuperInfo from "@/features/navigation/components/SuperInfo.vue";
 
-const store = useUserStore();
+const store = useNavigationStore();
 
 const menuItems = ref([
   {
