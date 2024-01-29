@@ -1,14 +1,14 @@
 <template>
-  <div class="fixed top-0 left-0 w-full z-50">
-    <nav class="w-72 bg-brand-black-100 h-screen z-50 px-4 py-8">
-      <div class="flex justify-between mb-10 items-center">
+  <div class="fixed left-0 top-0 z-50 w-full">
+    <nav class="z-50 h-screen w-72 bg-brand-black-100 px-4 py-8">
+      <div class="mb-10 flex items-center justify-between">
         <a href="/">
           <img :src="logo1" class="h-10" alt="Nexus logo" height="50" />
         </a>
         <X class="cursor-pointer" color="#fff" @click="closeMenu" />
       </div>
 
-      <ul class="text-white text-sm font-medium mb-5">
+      <ul class="mb-5 text-sm font-medium text-white">
         <li
           v-for="menuItem in menuItems"
           :key="menuItem.id"
@@ -24,18 +24,18 @@
       </ul>
 
       <div class="flex flex-col gap-4">
-        <div class="text-white flex gap-2 items-center text-sm">
+        <div class="flex items-center gap-2 text-sm text-white">
           <span
-            class="bg-brand-blue-100 rounded-full flex items-center justify-center w-7 h-7"
+            class="flex h-7 w-7 items-center justify-center rounded-full bg-brand-blue-100"
           >
             <Mail color="#fff" size="14" />
           </span>
           <span>email@example.com</span>
         </div>
 
-        <div class="text-white flex gap-2 items-center text-sm mb-3">
+        <div class="mb-3 flex items-center gap-2 text-sm text-white">
           <span
-            class="bg-brand-blue-100 rounded-full flex items-center justify-center w-7 h-7"
+            class="flex h-7 w-7 items-center justify-center rounded-full bg-brand-blue-100"
           >
             <Phone color="#fff" size="14" />
           </span>
@@ -60,7 +60,7 @@
     </nav>
 
     <div
-      class="bg-black opacity-50 w-full h-screen absolute top-0 right-0 -z-10"
+      class="absolute right-0 top-0 -z-10 h-screen w-full bg-black opacity-50"
       @click="closeMenu"
     ></div>
   </div>

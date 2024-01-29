@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full bg-white relative py-5 lg:py-0">
+  <header class="relative w-full bg-white py-5 lg:py-0">
     <div>
       <Transition name="navigation">
         <navigation-mobile v-show="store.activeMenu" />
@@ -8,7 +8,7 @@
       <super-info />
 
       <div
-        class="custom-container mx-auto px-4 flex justify-between items-center py-0 lg:py-4"
+        class="custom-container mx-auto flex items-center justify-between px-4 py-0 lg:py-4"
       >
         <div>
           <a href="/">
@@ -21,7 +21,7 @@
             <li
               v-for="menuItem in menuItems"
               :key="menuItem.id"
-              class="font-medium text-brand-black-100 hover:text-brand-blue-100 transition duration-300"
+              class="font-medium text-brand-black-100 transition duration-300 hover:text-brand-blue-100"
             >
               <a href="#" class="py-3">{{ menuItem.name }}</a>
             </li>
@@ -29,25 +29,24 @@
         </nav>
 
         <div class="flex flex-wrap">
-          <div class="lg:flex-wrap lg:gap-4 hidden lg:flex">
+          <div class="hidden lg:flex lg:flex-wrap lg:gap-4">
             <button
               type="button"
               data-js="search-button"
-              class="transition duration-300 cursor-pointer rounded-md border border-gray-200 hover:border-blue-100 px-3 hover:bg-brand-blue-100 search-button"
+              class="search-button cursor-pointer rounded-md border border-gray-200 px-3 transition duration-300 hover:border-blue-100 hover:bg-brand-blue-100"
               @click="toggleSearch"
             >
               <Search class="search-icon" />
             </button>
 
-            <button
-              type="button"
-              class="hidden lg:block capitalize bg-brand-blue-100 font-medium text-white px-7 py-3 rounded-md hover:bg-brand-blue-200 transition duration-300"
-            >
-              Get Consulting
-            </button>
+            <action-button
+              text="Get Consulting"
+              style-button="primary"
+              class="hidden lg:block"
+            />
           </div>
 
-          <div class="cursor-pointer block lg:hidden" @click="toggleMenu">
+          <div class="block cursor-pointer lg:hidden" @click="toggleMenu">
             <Menu color="#1a73e9" size="28" />
           </div>
         </div>
@@ -58,24 +57,24 @@
   <Transition name="search-modal">
     <div
       v-show="activeSearch"
-      class="bg-brand-black-100/75 fixed top-0 left-0 w-full h-screen search-modal cursor-pointer z-50"
+      class="search-modal fixed left-0 top-0 z-50 h-screen w-full cursor-pointer bg-brand-black-100/75"
       @click="toggleSearch"
     >
       <div
         ref="search-container-modal"
         data-js="search-container-modal"
-        class="flex justify-center items-center h-full w-full"
+        class="flex h-full w-full items-center justify-center"
       >
-        <div class="flex px-4 w-full sm:w-auto">
+        <div class="flex w-full px-4 sm:w-auto">
           <input
             type="text"
             placeholder="Search here..."
-            class="w-full sm:min-w-[500px] p-6 rounded-l-md"
+            class="w-full rounded-l-md p-6 sm:min-w-[500px]"
           />
           <button
             type="button"
             data-js="search-button"
-            class="bg-brand-blue-100 px-6 rounded-r-md hover:bg-brand-blue-200 transition duration-300"
+            class="rounded-r-md bg-brand-blue-100 px-6 transition duration-300 hover:bg-brand-blue-200"
             @click.stop="toggleSearch"
           >
             <Search color="#fff" />
@@ -96,6 +95,7 @@ import logo2 from "@/assets/images/logo2.svg";
 
 import NavigationMobile from "@/features/navigation/components/NavigationMobile.vue";
 import SuperInfo from "@/features/navigation/components/SuperInfo.vue";
+import ActionButton from "@/components/ActionButton.vue";
 
 const store = useNavigationStore();
 
