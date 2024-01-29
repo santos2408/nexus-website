@@ -1,33 +1,93 @@
 <template>
-  <div class="hero-container relative flex h-[540px] w-full justify-between xl:h-[740px]">
-    <div class="custom-container z-10 mx-auto">
-      <div class="flex h-full flex-col justify-center">
-        <h1 class="mb-6 text-3xl font-bold capitalize text-white md:text-6xl">
-          Get More Of What <br />
-          You Want From Your <br />
-          Bussines
-        </h1>
+  <div>
+    <div
+      class="hero-container relative flex h-[540px] w-full flex-col justify-center xl:h-[740px]"
+    >
+      <div class="custom-container z-10 mx-auto">
+        <div class="flex h-full flex-col justify-center">
+          <h1 class="mb-6 text-3xl font-bold capitalize text-white md:text-6xl">
+            Get More Of What <br />
+            You Want From Your <br />
+            Bussines
+          </h1>
 
-        <p class="mb-6 max-w-[500px] text-base text-white md:max-w-[640px] md:text-xl">
-          At Nexus Consulting, we redefine the future of businesses through innovative
-          strategies and specialized advisory.
-        </p>
+          <p class="mb-6 max-w-[500px] text-base text-white md:max-w-[640px] md:text-xl">
+            At Nexus Consulting, we redefine the future of businesses through innovative
+            strategies and specialized advisory.
+          </p>
 
-        <div class="flex flex-col gap-3 min-[360px]:flex-row xl:gap-5">
-          <action-button text="Get Consulting" style-button="primary" class="" />
-          <action-button text="Learn More" style-button="secondary" class="" />
+          <div class="flex flex-col gap-3 min-[360px]:flex-row xl:gap-5">
+            <action-button text="Get Consulting" style-button="primary" class="" />
+            <action-button text="Learn More" style-button="secondary" class="" />
+          </div>
         </div>
+      </div>
+
+      <div class="absolute right-0 top-0 hidden h-full xl:block">
+        <img :src="hero" alt="" class="h-full" />
       </div>
     </div>
 
-    <div class="absolute right-0 top-0 hidden h-full xl:block">
-      <img :src="hero" alt="" class="h-full" />
+    <div class="custom-container relative mx-auto w-full">
+      <ul
+        class="absolute -top-12 left-2/4 flex w-full -translate-x-1/2 flex-col gap-8 px-4 lg:flex-row lg:justify-between xl:-top-24"
+        @mouseover="handleListOver"
+        @mouseout="handleListOut"
+      >
+        <li class="hero-list__item" data-js="hero-list__item">
+          <div class="hero-list-icon__container relative z-10 p-3">
+            <hands-icon color="#1A73E9" class="hero-list-icon__icon" />
+          </div>
+          <h2 class="hero-list__title">
+            <a href="#" class="transition duration-300 hover:text-brand-blue-100"
+              >Business Advice</a
+            >
+          </h2>
+          <p class="hero-list__paragraph">
+            Elevate your business with our comprehensive Business Advice services.
+          </p>
+          <a href="#" class="hero-list__link">Learn More</a>
+        </li>
+
+        <li class="hero-list__item" data-js="hero-list__item">
+          <div class="hero-list-icon__container relative p-4">
+            <graphics-icon color="#1A73E9" class="hero-list-icon__icon" />
+          </div>
+          <h2 class="hero-list__title">
+            <a href="#" class="transition duration-300 hover:text-brand-blue-100"
+              >Financial Advice</a
+            >
+          </h2>
+          <p class="hero-list__paragraph">
+            Navigate the financial landscape with confidence through our Financial Advice.
+          </p>
+          <a href="#" class="hero-list__link">Learn More</a>
+        </li>
+
+        <li class="hero-list__item" data-js="hero-list__item">
+          <div class="hero-list-icon__container relative px-4">
+            <networking-icon color="#1A73E9" class="hero-list-icon__icon" />
+          </div>
+          <h2 class="hero-list__title">
+            <a href="#" class="transition duration-300 hover:text-brand-blue-100"
+              >Risk Management</a
+            >
+          </h2>
+          <p class="hero-list__paragraph">
+            Safeguard your business against uncertainties with our proactive solutions.
+          </p>
+          <a href="#" class="hero-list__link">Learn More</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script setup>
 import ActionButton from "@/components/ActionButton.vue";
+import handsIcon from "@/components/icons/handsIcon.vue";
+import graphicsIcon from "@/components/icons/graphicsIcon.vue";
+import networkingIcon from "@/components/icons/networkingIcon.vue";
 
 import hero from "@/assets/images/hero-bg-2.png";
 </script>
@@ -38,5 +98,49 @@ import hero from "@/assets/images/hero-bg-2.png";
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.hero-list__item {
+  @apply flex flex-1 flex-col items-center rounded-md bg-white p-11 text-center shadow;
+}
+
+.hero-list-icon__container {
+  @apply mb-8 h-20 w-20 rounded-full bg-brand-blue-100 bg-opacity-10;
+}
+
+/* .hero-list-icon__container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background-color: #1a73e9;
+  transform: scale(0);
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
+  z-index: -1;
+} */
+
+.hero-list__item:hover .hero-list-icon__container::before {
+  transform: scale(1);
+}
+
+.hero-list-icon__icon {
+  @apply h-full w-full;
+}
+
+.hero-list__title {
+  @apply text-2xl font-semibold text-brand-black-100;
+}
+
+.hero-list__paragraph {
+  @apply py-4 text-base text-brand-gray-100;
+}
+
+.hero-list__link {
+  @apply text-base font-medium;
 }
 </style>

@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 /* @import "./assets/css/layout.css"; */
+
+body {
+  height: 2000px;
+}
