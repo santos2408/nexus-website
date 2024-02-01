@@ -31,12 +31,17 @@
     <div class="custom-container relative mx-auto w-full">
       <ul
         class="absolute -top-12 left-2/4 flex w-full -translate-x-1/2 flex-col gap-8 px-4 lg:flex-row lg:justify-between xl:-top-24"
-        @mouseover="handleListOver"
-        @mouseout="handleListOut"
       >
-        <li class="hero-list__item" data-js="hero-list__item">
-          <div class="hero-list-icon__container relative z-10 p-3">
-            <hands-icon color="#1A73E9" class="hero-list-icon__icon" />
+        <li
+          class="hero-list__item"
+          data-js="hero-list__item"
+          @mouseover="hoverTest"
+          @mouseout="hoverTest2"
+        >
+          <div class="hero-list-icon__container relative z-[1] p-3">
+            <hands-icon
+              class="hero-list-icon__icon fill-brand-blue-100 transition duration-500"
+            />
           </div>
           <h2 class="hero-list__title">
             <a href="#" class="transition duration-300 hover:text-brand-blue-100"
@@ -50,8 +55,10 @@
         </li>
 
         <li class="hero-list__item" data-js="hero-list__item">
-          <div class="hero-list-icon__container relative p-4">
-            <graphics-icon color="#1A73E9" class="hero-list-icon__icon" />
+          <div class="hero-list-icon__container relative z-[1] p-4">
+            <graphics-icon
+              class="hero-list-icon__icon fill-brand-blue-100 transition duration-500"
+            />
           </div>
           <h2 class="hero-list__title">
             <a href="#" class="transition duration-300 hover:text-brand-blue-100"
@@ -65,8 +72,10 @@
         </li>
 
         <li class="hero-list__item" data-js="hero-list__item">
-          <div class="hero-list-icon__container relative px-4">
-            <networking-icon color="#1A73E9" class="hero-list-icon__icon" />
+          <div class="hero-list-icon__container relative z-[1] p-4">
+            <networking-icon
+              class="hero-list-icon__icon fill-brand-blue-100 transition duration-500"
+            />
           </div>
           <h2 class="hero-list__title">
             <a href="#" class="transition duration-300 hover:text-brand-blue-100"
@@ -108,7 +117,7 @@ import hero from "@/assets/images/hero-bg-2.png";
   @apply mb-8 h-20 w-20 rounded-full bg-brand-blue-100 bg-opacity-10;
 }
 
-/* .hero-list-icon__container::before {
+.hero-list-icon__container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -122,7 +131,7 @@ import hero from "@/assets/images/hero-bg-2.png";
   transform-style: preserve-3d;
   transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
   z-index: -1;
-} */
+}
 
 .hero-list__item:hover .hero-list-icon__container::before {
   transform: scale(1);
@@ -130,6 +139,10 @@ import hero from "@/assets/images/hero-bg-2.png";
 
 .hero-list-icon__icon {
   @apply h-full w-full;
+}
+
+.hero-list__item:hover .hero-list-icon__icon {
+  fill: #fff;
 }
 
 .hero-list__title {
