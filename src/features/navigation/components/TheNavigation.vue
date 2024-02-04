@@ -36,7 +36,7 @@
               class="search-button cursor-pointer rounded-md border border-gray-200 px-3 transition duration-300 hover:border-blue-100 hover:bg-brand-blue-100"
               @click="toggleSearch"
             >
-              <Search class="search-icon" />
+              <Search class="search-icon transition duration-300" />
             </button>
 
             <action-button
@@ -162,7 +162,6 @@ onMounted(() => {
 
 .search-button:hover .search-icon {
   color: #fff;
-  border-color: red;
 }
 
 .search-modal-enter-active,
