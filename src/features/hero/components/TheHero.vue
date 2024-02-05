@@ -20,8 +20,8 @@
             </p>
 
             <div class="flex flex-col gap-3 min-[360px]:flex-row xl:gap-5">
-              <action-button text="Get Consulting" style-button="primary" class="" />
-              <action-button text="Learn More" style-button="secondary" class="" />
+              <action-button text="Get Consulting" style-button="primary" />
+              <action-button text="Learn More" style-button="secondary" />
             </div>
           </div>
         </div>
@@ -46,8 +46,8 @@
             </p>
 
             <div class="flex flex-col gap-3 min-[360px]:flex-row xl:gap-5">
-              <action-button text="Get Consulting" style-button="primary" class="" />
-              <action-button text="Learn More" style-button="secondary" class="" />
+              <action-button text="Get Consulting" style-button="primary" />
+              <action-button text="Learn More" style-button="secondary" />
             </div>
           </div>
         </div>
@@ -58,37 +58,9 @@
       </swiper-slide>
     </swiper-container>
 
-    <!-- <div
-      class="hero-container relative flex h-[540px] w-full flex-col justify-center xl:h-[740px]"
-    >
-      <div class="custom-container z-10 mx-auto">
-        <div class="flex h-full flex-col justify-center">
-          <h1 class="mb-6 text-3xl font-bold capitalize text-white md:text-6xl">
-            Get More Of What <br />
-            You Want From Your <br />
-            Bussines
-          </h1>
-
-          <p class="mb-6 max-w-[500px] text-base text-white md:max-w-[640px] md:text-xl">
-            At Nexus Consulting, we redefine the future of businesses through innovative
-            strategies and specialized advisory.
-          </p>
-
-          <div class="flex flex-col gap-3 min-[360px]:flex-row xl:gap-5">
-            <action-button text="Get Consulting" style-button="primary" class="" />
-            <action-button text="Learn More" style-button="secondary" class="" />
-          </div>
-        </div>
-      </div>
-
-      <div class="absolute right-0 top-0 hidden h-full xl:block">
-        <img :src="hero" alt="" class="h-full" />
-      </div>
-    </div> -->
-
     <div class="custom-container relative mx-auto w-full">
       <ul
-        class="absolute -top-12 left-2/4 flex w-full -translate-x-1/2 flex-col gap-8 px-4 lg:flex-row lg:justify-between xl:-top-24"
+        class="absolute -top-12 left-2/4 z-10 flex w-full -translate-x-1/2 flex-col gap-8 px-4 lg:flex-row lg:justify-between xl:-top-24"
       >
         <li
           class="hero-list__item"
@@ -109,7 +81,7 @@
           <p class="hero-list__paragraph">
             Elevate your business with our comprehensive Business Advice services.
           </p>
-          <a href="#" class="hero-list__link">Learn More</a>
+          <a href="#" class="hero-list__link">Learn More &#8594;</a>
         </li>
 
         <li class="hero-list__item" data-js="hero-list__item">
@@ -126,7 +98,7 @@
           <p class="hero-list__paragraph">
             Navigate the financial landscape with confidence through our Financial Advice.
           </p>
-          <a href="#" class="hero-list__link">Learn More</a>
+          <a href="#" class="hero-list__link">Learn More &#8594;</a>
         </li>
 
         <li class="hero-list__item" data-js="hero-list__item">
@@ -143,7 +115,7 @@
           <p class="hero-list__paragraph">
             Safeguard your business against uncertainties with our proactive solutions.
           </p>
-          <a href="#" class="hero-list__link">Learn More</a>
+          <a href="#" class="hero-list__link">Learn More &#8594;</a>
         </li>
       </ul>
     </div>
@@ -175,16 +147,10 @@ const swiperParams = {
     }
 
     .swiper-horizontal > .swiper-pagination {
-      top: 0;
-      left: 0;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      gap: 25px;
-      text-align: left;
-      height: 100%;
-      width: 10%;
+      gap: 10px;
+      margin-bottom: 60px;
     }
 
     .swiper-pagination-bullet {
@@ -197,13 +163,28 @@ const swiperParams = {
       background: #fff;
       box-shadow: 0px 0px 0px 5px #080a29, 0px 0px 0px 6px #fff;
     }
+
+    @media screen and (min-width: 1600px) {
+      .swiper-horizontal > .swiper-pagination {
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        text-align: left;
+        height: 100%;
+        width: 10%;
+        margin-bottom: 0;
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      .swiper-horizontal > .swiper-pagination {
+        margin-bottom: 120px;
+      }
+    }
   `,
   ],
-  on: {
-    init() {
-      // ...
-    },
-  },
 };
 
 onMounted(() => {
@@ -265,7 +246,7 @@ onMounted(() => {
 }
 
 .hero-list__link {
-  @apply text-base font-medium;
+  @apply text-base font-medium transition duration-300 hover:text-brand-blue-100;
 }
 
 .swiper-pagination-horizontal {

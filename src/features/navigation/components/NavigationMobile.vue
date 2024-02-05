@@ -67,8 +67,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref } from "vue";
 import { useNavigationStore } from "@/features/navigation/stores/navigation";
+import { useEventListener } from "@/composables/useEventListener";
 
 import { Phone, Mail, X } from "lucide-vue-next";
 
@@ -116,11 +117,5 @@ const handleCurrentScreen = () => {
   store.onMobile = isOnMobile ? true : false;
 };
 
-onMounted(() => {
-  window.addEventListener("resize", handleCurrentScreen);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("resize", handleCurrentScreen);
-});
+useEventListener(window, "resize", handleCurrentScreen);
 </script>
