@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <swiper-container
       ref="swiperEl"
       init="false"
@@ -58,9 +58,9 @@
       </swiper-slide>
     </swiper-container>
 
-    <div class="custom-container relative mx-auto w-full">
+    <div class="custom-container mx-auto mb-10 w-full">
       <ul
-        class="absolute -top-12 left-2/4 z-10 flex w-full -translate-x-1/2 flex-col gap-8 px-4 lg:flex-row lg:justify-between xl:-top-24"
+        class="relative -top-12 z-10 flex w-full flex-col gap-8 px-4 lg:flex-row lg:justify-between xl:-top-24"
       >
         <li
           class="hero-list__item"
@@ -119,7 +119,7 @@
         </li>
       </ul>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
