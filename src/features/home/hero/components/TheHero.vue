@@ -195,7 +195,7 @@ onMounted(() => {
 
 <style scoped>
 .hero-container {
-  background-image: url(../../../assets/images/hero-bg.png);
+  background-image: url("/src/assets/images/hero-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

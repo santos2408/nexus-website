@@ -5,7 +5,7 @@
 
 <script>
 import TheNavigation from "@/features/navigation/components/TheNavigation.vue";
-import TheHero from "@/features/hero/components/TheHero.vue";
+import TheHero from "@/features/home/hero/components/TheHero.vue";
 
 export default {
   name: "App",
