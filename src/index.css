@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import "./assets/css/layout.css"; */
+@layer utilities {
+  .container-padding {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+  }
+}
 
 body {
   height: 2000px;
