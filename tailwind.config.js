@@ -4,7 +4,16 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts}"],
   theme: {
+    screens: {
+      sm: "576px",
+      md: "768px",
+      lg: "992px",
+      xl: "1200px",
+    },
     extend: {
+      screens: {
+        xxl: "1320px",
+      },
       fontFamily: {
         sans: ["Roboto", "Inter Tight", ...defaultTheme.fontFamily.sans],
       },
