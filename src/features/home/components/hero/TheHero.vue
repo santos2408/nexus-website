@@ -6,7 +6,7 @@
       class="relative flex h-[540px] w-full flex-col justify-center xl:h-[740px]"
     >
       <swiper-slide class="hero-container text-white">
-        <div class="custom-container z-10 mx-auto h-full">
+        <div class="container-padding container z-10 mx-auto h-full">
           <div class="flex h-full flex-col justify-center">
             <h1 class="mb-6 text-3xl font-bold capitalize text-white md:text-6xl">
               Get More Of What <br />
@@ -32,7 +32,7 @@
       </swiper-slide>
 
       <swiper-slide class="hero-container text-white">
-        <div class="custom-container z-10 mx-auto h-full">
+        <div class="container z-10 mx-auto h-full">
           <div class="flex h-full flex-col justify-center">
             <h1 class="mb-6 text-3xl font-bold capitalize text-white md:text-6xl">
               Get More Of What <br />
@@ -58,74 +58,27 @@
       </swiper-slide>
     </swiper-container>
 
-    <div class="custom-container mx-auto mb-10 w-full">
+    <div class="container-padding container mx-auto mb-10 w-full">
       <ul
-        class="relative -top-12 z-10 flex w-full flex-col gap-8 px-4 lg:flex-row lg:justify-between xl:-top-24"
+        class="relative -top-12 z-10 flex w-full flex-col gap-8 lg:flex-row lg:justify-between xl:-top-24"
       >
-        <li
-          class="hero-list__item"
-          data-js="hero-list__item"
-          @mouseover="hoverTest"
-          @mouseout="hoverTest2"
-        >
-          <div class="hero-list-icon__container relative z-[1] p-3">
-            <hands-icon
-              class="hero-list-icon__icon fill-brand-blue-100 transition duration-500"
-            />
-          </div>
-          <h2 class="hero-list__title">
-            <a href="#" class="transition duration-300 hover:text-brand-blue-100"
-              >Business Advice</a
-            >
-          </h2>
-          <p class="hero-list__paragraph">
-            Elevate your business with our comprehensive Business Advice services.
-          </p>
-          <a href="#" class="hero-list__link">Learn More &#8594;</a>
-        </li>
-
-        <li class="hero-list__item" data-js="hero-list__item">
-          <div class="hero-list-icon__container relative z-[1] p-4">
-            <graphics-icon
-              class="hero-list-icon__icon fill-brand-blue-100 transition duration-500"
-            />
-          </div>
-          <h2 class="hero-list__title">
-            <a href="#" class="transition duration-300 hover:text-brand-blue-100"
-              >Financial Advice</a
-            >
-          </h2>
-          <p class="hero-list__paragraph">
-            Navigate the financial landscape with confidence through our Financial Advice.
-          </p>
-          <a href="#" class="hero-list__link">Learn More &#8594;</a>
-        </li>
-
-        <li class="hero-list__item" data-js="hero-list__item">
-          <div class="hero-list-icon__container relative z-[1] p-4">
-            <networking-icon
-              class="hero-list-icon__icon fill-brand-blue-100 transition duration-500"
-            />
-          </div>
-          <h2 class="hero-list__title">
-            <a href="#" class="transition duration-300 hover:text-brand-blue-100"
-              >Risk Management</a
-            >
-          </h2>
-          <p class="hero-list__paragraph">
-            Safeguard your business against uncertainties with our proactive solutions.
-          </p>
-          <a href="#" class="hero-list__link">Learn More &#8594;</a>
-        </li>
+        <card-hero v-for="cardItem in cardItems" :key="cardItem.title" :data="cardItem">
+          <component
+            :is="cardItem.icon"
+            class="hero-list-icon__icon fill-brand-blue-100 transition duration-500"
+          />
+        </card-hero>
       </ul>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 import ActionButton from "@/components/ActionButton.vue";
+import CardHero from "./CardHero.vue";
+
 import handsIcon from "@/components/icons/handsIcon.vue";
 import graphicsIcon from "@/components/icons/graphicsIcon.vue";
 import networkingIcon from "@/components/icons/networkingIcon.vue";
@@ -133,6 +86,27 @@ import networkingIcon from "@/components/icons/networkingIcon.vue";
 import hero from "@/assets/images/hero-bg-2.png";
 
 const swiperEl = ref(null);
+const cardItems = [
+  {
+    title: "Business Advice",
+    description: "Elevate your business with our comprehensive Business Advice services.",
+    path: "Home",
+    icon: handsIcon,
+  },
+  {
+    title: "Financial Advice",
+    description:
+      "Navigate the financial landscape with confidence through our Financial Advice.",
+    path: "Home",
+    icon: graphicsIcon,
+  },
+  {
+    title: "Risk Management",
+    description: "Safeguard your business against uncertainties with our proactive solutions.",
+    path: "Home",
+    icon: networkingIcon,
+  },
+];
 
 const swiperParams = {
   slidesPerView: 1,
@@ -191,6 +165,10 @@ onMounted(() => {
   Object.assign(swiperEl.value, swiperParams);
   swiperEl.value.initialize();
 });
+
+onUnmounted(() => {
+  swiperEl.value.destroy();
+});
 </script>
 
 <style scoped>
@@ -201,58 +179,11 @@ onMounted(() => {
   background-repeat: no-repeat;
 }
 
-.hero-list__item {
-  @apply flex flex-1 flex-col items-center rounded-md bg-white p-11 text-center shadow;
-}
-
-.hero-list-icon__container {
-  @apply mb-8 h-20 w-20 rounded-full bg-brand-blue-100 bg-opacity-10;
-}
-
-.hero-list-icon__container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  background-color: #1a73e9;
-  transform: scale(0);
-  transform-origin: center;
-  transform-style: preserve-3d;
-  transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
-  z-index: -1;
-}
-
-.hero-list__item:hover .hero-list-icon__container::before {
-  transform: scale(1);
-}
-
 .hero-list-icon__icon {
   @apply h-full w-full;
 }
 
 .hero-list__item:hover .hero-list-icon__icon {
   fill: #fff;
-}
-
-.hero-list__title {
-  @apply text-2xl font-semibold text-brand-black-100;
-}
-
-.hero-list__paragraph {
-  @apply py-4 text-base text-brand-gray-100;
-}
-
-.hero-list__link {
-  @apply text-base font-medium transition duration-300 hover:text-brand-blue-100;
-}
-
-.swiper-pagination-horizontal {
-  top: 0;
-  left: 60px;
-  display: flex;
-  flex-direction: column;
 }
 </style>

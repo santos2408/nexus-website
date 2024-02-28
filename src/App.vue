@@ -1,17 +1,11 @@
 <template>
   <the-navigation />
   <the-hero />
+  <the-about />
 </template>
 
-<script>
+<script setup>
 import TheNavigation from "@/features/navigation/components/TheNavigation.vue";
-import TheHero from "@/features/home/hero/components/TheHero.vue";
-
-export default {
-  name: "App",
-  components: {
-    TheNavigation,
-    TheHero,
-  },
-};
+import TheHero from "@/features/home/components/hero/TheHero.vue";
+import TheAbout from "@/features/home/components/about/TheAbout.vue";
 </script>

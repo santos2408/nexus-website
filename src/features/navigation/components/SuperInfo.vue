@@ -1,7 +1,7 @@
 <template>
   <div class="relative hidden border-b border-gray-200 lg:block">
     <div
-      class="custom-container superinfo-container mx-auto hidden items-center justify-between px-4 lg:flex"
+      class="superinfo-container container mx-auto hidden items-center justify-between px-4 lg:flex"
     >
       <div class="superinfo-left relative">
         <ul

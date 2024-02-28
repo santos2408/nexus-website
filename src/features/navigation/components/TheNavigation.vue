@@ -5,11 +5,9 @@
         <navigation-mobile v-show="store.activeMenu" />
       </Transition>
 
-      <super-info />
+      <super-info v-once />
 
-      <div
-        class="custom-container mx-auto flex items-center justify-between px-4 py-0 lg:py-4"
-      >
+      <div class="container mx-auto flex items-center justify-between px-4 py-0 lg:py-4">
         <div>
           <a href="/">
             <img :src="logo2" class="h-11" alt="Nexus logo" height="50" />
@@ -23,7 +21,7 @@
               :key="menuItem.id"
               class="font-medium text-brand-black-100 transition duration-300 hover:text-brand-blue-100"
             >
-              <a href="#" class="py-3">{{ menuItem.name }}</a>
+              <a :href="menuItem.path" class="py-3">{{ menuItem.name }}</a>
             </li>
           </ul>
         </nav>
@@ -99,33 +97,33 @@ import ActionButton from "@/components/ActionButton.vue";
 
 const store = useNavigationStore();
 
-const menuItems = ref([
+const menuItems = [
   {
     id: 0,
     name: "Home",
-    url: "/",
+    path: "/",
   },
   {
     id: 1,
     name: "About",
-    url: "/about",
+    path: "/about",
   },
   {
     id: 2,
     name: "Services",
-    url: "/services",
+    path: "/services",
   },
   {
     id: 3,
     name: "News",
-    url: "/news",
+    path: "/news",
   },
   {
     id: 4,
     name: "Contact",
-    url: "/contact",
+    path: "/contact",
   },
-]);
+];
 
 const searchButton = ref(null);
 const searchContainerModal = ref(null);
@@ -184,3 +182,4 @@ onMounted(() => {
   transform: translateX(-100%);
 }
 </style>
+@/features/navigation/store/navigation @/stores/navigation
