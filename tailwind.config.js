@@ -9,11 +9,9 @@ export default {
       md: "768px",
       lg: "992px",
       xl: "1200px",
+      "2xl": "1320px",
     },
     extend: {
-      screens: {
-        xxl: "1320px",
-      },
       fontFamily: {
         sans: ["Roboto", "Inter Tight", ...defaultTheme.fontFamily.sans],
       },
